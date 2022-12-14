@@ -12,8 +12,6 @@ def get_matches_info(user_id, count):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(f"https://csgostats.gg/player/{user_id}#/matches")
     
-    time.sleep(1)
-    
     match_row = "/html/body/div[@id='outer-wrapper']/div[@id='content-wrapper']/div[@class='main-container']/div[@id='player-outer-section']/div[@class='content-sub-nav-outer']/div[@class='main-content']/div[2]/div[@class='content-tabs']/div[@id='player-matches']/div[@id='match-list-outer']/table[@class='table table-striped']/tbody/tr[@class='p-row js-link ']"
     matches = driver.find_elements("xpath", match_row)
     matches_quantity = count + 1 if count <= 10 and len(matches) >= count else len(matches) + 1
@@ -51,8 +49,6 @@ def get_maps_info(user_id, count):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(f"https://csgostats.gg/player/{user_id}#/maps")
     
-    time.sleep(1)
-    
     map_row = "/html/body/div[@id='outer-wrapper']/div[@id='content-wrapper']/div[@class='main-container']/div[@id='player-outer-section']/div[@class='content-sub-nav-outer']/div[@class='main-content']/div[2]/div[@class='content-tabs']/div[@id='player-maps']/div/div"
     maps = driver.find_elements("xpath", map_row)
     maps_quantity = count + 2 if count <= 10 and len(maps) - 1 >= count else len(maps) + 1
@@ -79,8 +75,6 @@ def get_weapons_info(user_id, count):
     options.add_argument("--window-size=%s" % WINDOW_SIZE)
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(f"https://csgostats.gg/player/{user_id}#/weapons")
-    
-    time.sleep(1)
     
     weapon_row = "/html/body/div[@id='outer-wrapper']/div[@id='content-wrapper']/div[@class='main-container']/div[@id='player-outer-section']/div[@class='content-sub-nav-outer']/div[@class='main-content']/div[2]/div[@class='content-tabs']/div[@id='player-weapons']/div/table[@class='table table-striped']/tbody/tr[@class='p-row']"
     weapons = driver.find_elements("xpath", weapon_row)
