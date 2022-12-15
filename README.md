@@ -4,6 +4,7 @@ Discord bot for CS:GO players info (such as match history, most played maps, etc
 
 ## Installation:
 
+- `git clone https://github.com/ivang5/Discord-csgo-bot.git`
 - Execute `pip install -r requirements.txt`
 - Change the `TOKEN` variable inside `run_discord_bot()` function in `bot.py` file to be your bot's token.
 - If you want to add user aliases, edit the `get_user_id()` function in `utils.py` file.
